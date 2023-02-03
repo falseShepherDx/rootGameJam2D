@@ -1,18 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public float currenthp = 3f;
+    public float maxhp;
+    [SerializeField] float delay = 0.2f;
+    [SerializeField] bool hit = false;
+
     void Start()
     {
-        
+        currenthp = maxhp;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (hit)
+        {
+            currenthp--;
+        }
+        if(currenthp == 0)
+        {
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(0);
+        }
+       
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemey"))
+        {
+           
+            hit = true;
+            StartCoroutine(loadDelay());
+            hit = false;
+            
+
+        }
+       
+    }
+    IEnumerator loadDelay()
+    {
+        yield return new WaitForSeconds(delay);
         
     }
 }
