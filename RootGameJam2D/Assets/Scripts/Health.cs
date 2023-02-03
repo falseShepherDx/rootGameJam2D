@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-
     public float currenthp = 3f;
     public float maxhp;
-    [SerializeField] float delay = 0.2f;
+    [SerializeField] float delay = 2f;
     [SerializeField] bool hit = false;
 
     void Start()
@@ -18,34 +17,49 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if (hit)
-        {
-            currenthp--;
-        }
-        if(currenthp == 0)
+        currenthp = Mathf.Clamp(currenthp, 0, 3);
+        Debug.Log(currenthp);
+        if (currenthp == 0)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
         }
-       
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemey"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-           
-            hit = true;
-            StartCoroutine(loadDelay());
-            hit = false;
-            
+            currenthp--;
 
         }
-       
+
+
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(loadDelay());
+
+
+        }
+
+
+    }
+
+
+
     IEnumerator loadDelay()
     {
-        yield return new WaitForSeconds(delay);
-        
+        yield return new WaitForSeconds(1f);
+        currenthp -= Time.time;
+
+
+
     }
+
+
 }
