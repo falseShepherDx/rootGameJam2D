@@ -3,63 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Health : MonoBehaviour
+public class TreeHealth : MonoBehaviour
 {
-    public float currenthp = 3f;
-    public float maxhp;
-    [SerializeField] float delay = 2f;
-    [SerializeField] bool hit = false;
-
+    [SerializeField] float currentTreeHp = 120f;
+    [SerializeField] float maxTreeHp = 120f;
     void Start()
     {
-        currenthp = maxhp;
+        
     }
 
-    void Update()
+     void Update()
     {
-        currenthp = Mathf.Clamp(currenthp, 0, 3);
-       // Debug.Log(currenthp);
-        if (currenthp == 0)
+        currentTreeHp = Mathf.Clamp(currentTreeHp, 0, maxTreeHp);
+        Debug.Log(currentTreeHp);
+
+        if(currentTreeHp == 0)
         {
             Destroy(this.gameObject);
-            //SceneManager.LoadScene(0);
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            currenthp--;
-
+            currentTreeHp = currentTreeHp - 5;
         }
-
-
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(loadDelay());
-
-
+            StartCoroutine(treeloadDelay());
         }
-
-
     }
 
-
-
-    IEnumerator loadDelay()
+    IEnumerator treeloadDelay()
     {
         yield return new WaitForSeconds(1f);
-        currenthp -= Time.time;
+        currentTreeHp -= 5  * Time.time;
 
 
 
     }
-
 
 }
