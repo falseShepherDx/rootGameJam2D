@@ -420,3 +420,4 @@ MonoBehaviour:
   firePoint: {fileID: 1832329778}
   bulletPrefab: {fileID: 2627105834994614858, guid: c1d5eb1d1102c6447a472faa3a90f2ee, type: 3}
   bulletForce: 20
+  bullet: {fileID: 2627105834994614858, guid: c1d5eb1d1102c6447a472faa3a90f2ee, type: 3}

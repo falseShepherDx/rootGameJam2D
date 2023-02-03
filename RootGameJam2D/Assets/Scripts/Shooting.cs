@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
+    private GameObject deadGameObject;
 
 
     // Update is called once per frame
@@ -23,5 +24,20 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        StartCoroutine(BulletDestroyer());
+
+
+    }
+    IEnumerator BulletDestroyer()
+    {
+        yield return new WaitForSeconds(5f);
+        DestroyBullet();
+
+
+    }
+    void DestroyBullet()
+    {
+        deadGameObject = GameObject.FindWithTag("Bullet");
+        Destroy(deadGameObject);
     }
 }
