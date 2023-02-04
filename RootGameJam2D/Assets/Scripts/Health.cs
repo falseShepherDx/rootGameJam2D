@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
+    public int maxHealth;
     [SerializeField] private int currentHealth;
     private bool hit=true;
     private void Start()

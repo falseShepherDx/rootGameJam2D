@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     public Camera cam;
     Vector2 mousePos;
-
+    bool facingRight = true;
+   
 
     
     void Start()
@@ -22,7 +24,22 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        mousePos=cam.ScreenToWorldPoint(Input.mousePosition);      
+        mousePos=cam.ScreenToWorldPoint(Input.mousePosition);
+        if(mousePos.x<transform.position.x && facingRight)
+        {
+            flip();
+        }
+        else if(mousePos.x > transform.position.x && !facingRight)
+        {
+            flip();
+        }
+        
+    }
+    void flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0, 180f, 0);
+
     }
     private void FixedUpdate()
     {
