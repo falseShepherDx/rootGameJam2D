@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
         if (currenthp == 0)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
         }
 
     }
