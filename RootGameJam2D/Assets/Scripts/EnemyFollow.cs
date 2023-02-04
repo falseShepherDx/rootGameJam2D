@@ -8,7 +8,6 @@ public class EnemyFollow : MonoBehaviour
     public float speed;
     private Transform playerPos;
     private float repelRange = 0.5f;
-    
     private Rigidbody2D rb;
     void Awake()
     {
