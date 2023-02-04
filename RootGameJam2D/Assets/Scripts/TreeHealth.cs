@@ -15,7 +15,7 @@ public class TreeHealth : MonoBehaviour
      void Update()
     {
         currentTreeHp = Mathf.Clamp(currentTreeHp, 0, maxTreeHp);
-        Debug.Log(currentTreeHp);
+       // Debug.Log(currentTreeHp);
 
         if(currentTreeHp == 0)
         {
