@@ -2188,10 +2188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9976aabf5a41e4f49ad2aef37b2f8952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 7
-  time: 1.5
+  spawnRadius: 12
+  time: 0.75
   enemies:
+  - {fileID: 1013120176954298195, guid: d476f2376381fe84aa5d010919b90b5a, type: 3}
   - {fileID: 3783632622534793362, guid: 9790f58aa634df14e9b657877d7ee46b, type: 3}
+  - {fileID: 7578191346871899363, guid: 2c78ee4bf77d20a4b834bdabff6c1d42, type: 3}
 --- !u!4 &1966271923
 Transform:
   m_ObjectHideFlags: 0
@@ -2474,10 +2476,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 2561459706275489595, guid: 3fa56d73d1450614ba0a17d386e95383, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2561459706275489597, guid: 3fa56d73d1450614ba0a17d386e95383, type: 3}
       propertyPath: m_RootOrder
       value: 1
