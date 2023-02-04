@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
+    
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
     private GameObject deadGameObject;
+    
 
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class Shooting : MonoBehaviour
 
 
     }
+
     IEnumerator BulletDestroyer()
     {
         yield return new WaitForSeconds(5f);
