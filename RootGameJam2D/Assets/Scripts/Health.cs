@@ -2,30 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 public class Health : MonoBehaviour
 {
-    public float currenhealth;
-    public float maxHealth = 10f;
-    void Start()
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int currentHealth;
+    private bool hit=true;
+    private void Start()
     {
-        currenhealth = maxHealth;
+        currentHealth=maxHealth;
     }
 
-    void Update()
+    IEnumerator HitBoxOff()
     {
-        Debug.Log(currenhealth);
+        hit = false;
+        yield return new WaitForSeconds(0.5f);
+        hit = true;
+
+
     }
 
-    public void TakeDamage(int amount)
+
+    private void OnCollisionEnter2D(Collision2D target)
     {
-        currenhealth -= amount;
-        if (currenhealth <= 0)
+        if (target.gameObject.CompareTag("Enemy"))
         {
-
-            Destroy(gameObject);
+            if (hit)
+            {
+                StartCoroutine(HitBoxOff());
+                currentHealth--;
+                Debug.Log(currentHealth);
+            }
         }
     }
-
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);    
+        }
+    }
 
 }

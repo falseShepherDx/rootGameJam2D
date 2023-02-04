@@ -14,9 +14,15 @@ public class EnemyHealth : MonoBehaviour
         }
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        health -= 20;
+        {
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
+                health -= 20;
+            }
 
+        }
     }
+
 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2561459706275489598}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,10 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e5ae648723e3e41af33bea98ba721a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currenthp: 3
-  maxhp: 3
-  delay: 2
-  hit: 0
+  maxHealth: 1
+  currentHealth: 0
 --- !u!114 &2561459706275489593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08724505, y: -0.26173532}
+  m_Offset: {x: -0.10098374, y: -0.2208792}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,7 +179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2193795, y: 2.4601989}
+  m_Size: {x: 1.0313573, y: 2.3784864}
   m_EdgeRadius: 0
 --- !u!1 &2561459706849927097
 GameObject:
