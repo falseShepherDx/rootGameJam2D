@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
 
 
-    // Start is called before the first frame update
+    
     void Start()
     {
     rb=GetComponent<Rigidbody2D>();     
