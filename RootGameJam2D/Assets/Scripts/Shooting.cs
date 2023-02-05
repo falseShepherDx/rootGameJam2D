@@ -6,12 +6,17 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
+    public AudioSource audioSource;
+    [SerializeField] AudioClip 
     
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
     private GameObject deadGameObject;
-    
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
