@@ -196,7 +196,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xp: 0
   level: 0
-  health: 0
 --- !u!1 &2561459706849927097
 GameObject:
   m_ObjectHideFlags: 0
