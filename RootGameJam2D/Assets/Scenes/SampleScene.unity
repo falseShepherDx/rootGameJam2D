@@ -2729,6 +2729,10 @@ PrefabInstance:
       propertyPath: bulletForce
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2561459706275489593, guid: 3fa56d73d1450614ba0a17d386e95383, type: 3}
+      propertyPath: shootingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5317b85ec33dfba44ad73f5ae9525d5a, type: 3}
     - target: {fileID: 2561459706275489594, guid: 3fa56d73d1450614ba0a17d386e95383, type: 3}
       propertyPath: shakevalue
       value: 3
